@@ -237,10 +237,7 @@
     ctx.fillRect(0, 0, W, H);
 
     /* Date intelligence — Forced to Indian Standard Time (IST) */
-    /* TEST MODE: Added +2 hours offset so midnight rolls over precisely at 10:00 PM IST */
-    const offsetMs = 2 * 60 * 60 * 1000;
-    const simulatedTime = new Date().getTime() + offsetMs;
-    const istString = new Date(simulatedTime).toLocaleString("en-US", { timeZone: "Asia/Kolkata" });
+    const istString = new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" });
     const now = new Date(istString);
     const year = now.getFullYear();
     const today = getDayOfYear(now);
