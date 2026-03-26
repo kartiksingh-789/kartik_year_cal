@@ -1,0 +1,16 @@
+{
+  "name": "year-progress-api",
+  "version": "1.0.0",
+  "description": "Year Progress Wallpaper Generator — API & Static Server",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "@napi-rs/canvas": "^0.1.65"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
