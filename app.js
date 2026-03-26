@@ -186,7 +186,7 @@
    *    accent          muted
    */
   function renderText(ctx, W, H, grid, remaining, pct) {
-    const footY = grid.oy + grid.gridH + grid.step * 0.69;
+    const footY = grid.oy + grid.gridH + grid.step * 0.30;
 
     const size = Math.max(22, Math.min(38, W * 0.028));
     ctx.textBaseline = "top";
@@ -236,11 +236,12 @@
     ctx.fillStyle = CONFIG.BG;
     ctx.fillRect(0, 0, W, H);
 
-    /* Date intelligence */
-    const now = new Date();
+    /* Date intelligence — Forced to Indian Standard Time (IST) */
+    const istString = new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" });
+    const now = new Date(istString);
     const year = now.getFullYear();
     const today = getDayOfYear(now);
-    const dateOfMo = getDayOfMonth(now);
+    const dateOfMo = now.getDate();
     const total = daysInYear(year);
     const remaining = total - today;
     const pct = Math.round((today / total) * 100);

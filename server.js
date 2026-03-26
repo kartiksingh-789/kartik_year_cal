@@ -194,8 +194,9 @@ function generatePNG(W, H) {
   ctx.fillStyle = CFG.BG;
   ctx.fillRect(0, 0, W, H);
 
-  /* Date data */
-  const now = new Date();
+  /* Date data — Forced to Indian Standard Time (IST) */
+  const istString = new Date().toLocaleString("en-US", { timeZone: "Asia/Kolkata" });
+  const now = new Date(istString);
   const year = now.getFullYear();
   const today = getDayOfYear(now);
   const dateOfMo = now.getDate();
